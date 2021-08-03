@@ -1,5 +1,3 @@
-use strict;
-
 function solveEquation(a, b, c) {
   let arr = [];
   D = Math.pow(b, 2) - 4 * a * c;
@@ -20,7 +18,7 @@ solveEquation();
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
 
-  // код для задачи №2 писать здесь
+  // код для задачи №2 писать здесь, но позже)
 
   return totalAmount;
 }
