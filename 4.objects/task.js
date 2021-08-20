@@ -6,41 +6,40 @@ function Student(name, gender, age) {
 
 Student.prototype.setSubject = function (subjectName) {
   this.subjectName = subjectName;
+  this.marks = [];
+}
+
+
+Student.prototype.addMarks = function (mark1, mark2, mark3, ...rest) {
+
 }
 
 Student.prototype.addMark = function (mark) {
   this.mark = mark;
-  marks = [];
-  for (let mark in marks) {
-    if (!Student.hasOwnProperty('mark')) {
-      marks.push.mark[0];
+  this.marks.push(mark);
+  for (let mark in this.marks) {
+    if (this.marks === undefined) {
+      this.marks.push(mark);
     } else {
-      marks = Object.assign([], ...mark);
+      Student.prototype.addMarks();
     }
-  }
-}
-
-Student.prototype.addMarks = function (mark1, mark2, mark3, ...rest) {
-  marks = [];
-  this.marks = marks;
-  for (let mark in marks) {
-    marks.push.this.mark;
+    delete this.mark;
   }
 }
 
 Student.prototype.getAverage = function () {
   let sum = 0;
-  for (let mark of marks) {
+  for (let mark of this.marks) {
     sum += mark;
-    let avg = sum / marks.length;
+    this.avg = sum / this.marks.length;
+    this.avg = this.avg.toFixed(4);
   }
-  return avg;
 }
 
 Student.prototype.exclude = function (reason) {
   this.reason = reason;
   delete this.subjectName;
-  delete this.mark;
+  delete this.marks;
 }
 
 let student1 = new Student('Kolin', 'male', '28');
@@ -54,6 +53,6 @@ student1.setSubject("Algebra");
 student1.addMark(2);
 student1.addMark(3);
 student1.addMark(3);
-//student1.getAverage()
-//student1.exclude('Низкие оценки')
+student1.addMark(2);
+//student1.exclude('Low grades')
 console.log(student1)
