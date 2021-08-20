@@ -2,16 +2,15 @@ function Student(name, gender, age) {
   this.name = name;
   this.gender = gender;
   this.age = age;
+  this.marks = [];
 }
 
 Student.prototype.setSubject = function (subjectName) {
-  this.subjectName = subjectName;
-  this.marks = [];
+  this.subject = subjectName;
 }
 
 
 Student.prototype.addMarks = function (mark1, mark2, mark3, ...rest) {
-
 }
 
 Student.prototype.addMark = function (mark) {
@@ -54,5 +53,5 @@ student1.addMark(2);
 student1.addMark(3);
 student1.addMark(3);
 student1.addMark(2);
-//student1.exclude('Low grades')
+//student1.exclude('Низкие оценки')
 console.log(student1)
