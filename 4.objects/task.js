@@ -27,14 +27,15 @@ Student.prototype.addMarks = function (...marks) {
   }
 }
 
-
 Student.prototype.getAverage = function () {
   let sum = 0;
   for (let mark of this.marks) {
     sum += mark;
-    return sum / this.marks.length;
   }
+  return sum / this.marks.length;
 }
+
+
 
 Student.prototype.exclude = function (reason) {
   this.excluded = reason;
