@@ -81,16 +81,12 @@ class Library {
     }
 
     addBook(book) {
-        this.book = book;
-        if (this.book.state > 30) this.books.push(this.book);
+        if (book.state > 30) this.books.push(book);
     }
 
     findBookBy(type, value) {
-        this.type = type;
-        this.value = value;
-        for (let key in books) {
-            this.keys = type;
-            if (key === value) return this.book;
+        for (let book in this.books) {
+            if (book[type] === value) return this.book;
             else return null;
         }
     }
