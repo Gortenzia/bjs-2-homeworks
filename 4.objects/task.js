@@ -9,23 +9,21 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMark = function (mark) {
-  this.mark = mark;
-  for (let mark in this.marks) {
-    if (this.marks === undefined) {
-      this.marks = [];
-      this.marks.push(mark);
-    } else {
-      this.marks.push(mark);
-    }
+  if (this.marks === undefined) {
+    this.marks = [];
   }
+
+  this.marks.push(mark);
 }
 
 Student.prototype.addMarks = function (...marks) {
-  this.marks = marks;
-  for (let mark in this.marks) {
-    this.marks.push(...mark);
+  if (this.marks === undefined) {
+    this.marks = [];
   }
+
+  this.marks.push(...marks);
 }
+
 
 Student.prototype.getAverage = function () {
   let sum = 0;
@@ -34,8 +32,6 @@ Student.prototype.getAverage = function () {
   }
   return sum / this.marks.length;
 }
-
-
 
 Student.prototype.exclude = function (reason) {
   this.excluded = reason;
@@ -48,3 +44,4 @@ let student2 = new Student('Andra', 'male', '18');
 let student3 = new Student('Anna', 'female', '17');
 let student4 = new Student('Tally', 'female', '24');
 let student5 = new Student('Spencer', 'male', '23');
+
