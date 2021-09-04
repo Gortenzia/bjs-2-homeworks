@@ -32,42 +32,30 @@ class Triangle {
         this.sideA = sideA;
         this.sideB = sideB;
         this.csideC = sideC;
-    }
 
-    isTriangle(sideA, sideB, sideC) {
-
-        if (((this.sideA + this.sideB) < sideC) || ((this.sideB + this.sideC) < sideA) || ((this.sideA + this.sideC) < sideB)) {
-            throw triangleError;
-
-        }
+        if (((sideA + sideB) < sideC) || ((sideB + sideC) < sideA) || ((sideA + sideC) < sideB)) throw triangleError;
     }
 
     getPerimeter() {
-        const perimetr = this.sideA + this.sideB + this.sideC;
-        return perimetr;
+        this.perimetr = this.sideA + this.sideB + this.sideC;
+        return this.perimetr;
     }
 
     getArea() {
-        const halfPerimetr = 0.5 * this.perimetr;
-        let x = this.perimetr * (this.perimetr - sideA) * (this.perimetr - sideB) * (this.perimetr - sideC);
-        const triangleSquare = Math.sqrt(x);
-        return triangleSquare;
+        const halfPerimetr = isNumber(0.5 * this.perimetr);
+        let x = this.perimetr * ((this.perimetr - this.sideA) * (this.perimetr - this.sideB) * (this.perimetr - this.sideC));
+        this.triangleSquare = Math.sqrt(x);
+        return this.triangleSquare;
     }
 
 }
+
 
 
 function getTriangle(sideA, sideB, sideC) {
     try {
         return new Triangle();
     } catch (err) {
-        return new class triangleError {
-            getArea() {
-                return err;
-            }
-            getPerimeter() {
-                return err;
-            }
-        }
+        return new Triangle(getArea(err), getPerimeter(err));
     }
 }
